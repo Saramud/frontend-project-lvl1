@@ -23,6 +23,7 @@
     "@babel/preset-env": "^7.4.5"
   },
   "dependencies": {
-    "npm": "^6.9.0"
+    "npm": "^6.9.0",
+    "readline-sync": "^1.4.9"
   }
 }
