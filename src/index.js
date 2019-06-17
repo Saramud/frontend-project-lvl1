@@ -19,7 +19,7 @@ export const evenGame = () => {
     const statNum = statusOfNumber(number);
     const answer = readlineSync.question(`\nQuestion: ${number}\nYour answer: `);
     if (answer.toUpperCase() === statNum.toUpperCase()) {
-      return (i < 3) ? letsPlay(i+1) : console.log(`Congratulations, ${name}`);
+      return (i < 3) ? letsPlay(i + 1) : console.log(`Congratulations, ${name}`);
     } return console.log(`'${answer}' is wrong answer ;(. Correct answer '${statNum}'. 
     Let's try again ${name}`);
   };
