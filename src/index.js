@@ -9,8 +9,6 @@ export const questionName = () => {
 };
 
 export const coreGame = (a, b, c) => {
- // console.log('\nWelcome to the Brain Games!!!');
- // console.log('Answer "yes" if number even otherwise answer "no"');
   const name = questionName();
   const letsPlay = (i) => {
     const numberOnScreen = a(c);
