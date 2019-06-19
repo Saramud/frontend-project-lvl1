@@ -1,9 +1,9 @@
 #!/usr/bin/node
-import { cdr } from 'hexlet-pairs';
+import { car, cdr } from 'hexlet-pairs';
 
 const calcString = (Numbers) => {
   const str = Numbers();
-  return cdr(str);
+  return cdr(car(str));
 };
 
 export default calcString;

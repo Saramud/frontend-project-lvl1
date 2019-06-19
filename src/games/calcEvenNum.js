@@ -3,7 +3,7 @@ import { car } from 'hexlet-pairs';
 
 const calcEvenNum = (Numbers) => {
   const num = Numbers();
-  return car(num);
+  return car(car(num));
 };
 
 export default calcEvenNum;
