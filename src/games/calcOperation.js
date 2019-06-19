@@ -1,5 +1,5 @@
 #!/usr/bin/node
-import { cons, car, cdr } from 'hexlet-pairs';
+import { cons } from 'hexlet-pairs';
 import generateNumber from './generateNumber';
 
 
