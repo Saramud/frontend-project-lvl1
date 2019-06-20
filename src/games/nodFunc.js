@@ -1,13 +1,24 @@
 #!/usr/bin/node
-import { car, cdr } from 'hexlet-pairs';
+import { car, cdr, cons } from 'hexlet-pairs';
 
 
-const nodNumbers = (func) => {
-  const nDel = `${car(cdr(func()))} ${cdr(cdr(func()))}`;
-  return nDel;
+const nodFunc = (func) => {
+  const firstNumber = car(cdr(func()));
+  const seconNumber = cdr(cdr(func()));
+  const nDel = `${firstNumber} ${seconNumber}`;
+  const searchDelitel = (c, b) => {
+    // eslint-disable-next-line no-plusplus
+    for (let i = b; i >= 1; i--) {
+      if (c % i === 0 && b % i === 0) {
+        return `${i}`;
+      }
+    }
+  };
+  const pairnNodDel = cons(nDel, searchDelitel(firstNumber, seconNumber));
+  return pairnNodDel;
 };
 
-const nodFunc = (a) => {
+/*const nodFunc = (a) => {
   let x = '';
   let y = '';
   // eslint-disable-next-line no-plusplus
@@ -29,6 +40,6 @@ const nodFunc = (a) => {
     }
   };
   return searchDelitel(x, y);
-};
+};*/
 
-export { nodFunc, nodNumbers };
+export { nodFunc };

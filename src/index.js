@@ -1,5 +1,6 @@
 #!/usr/bin/node
 import readlineSync from 'readline-sync';
+import { car, cdr } from 'hexlet-pairs';
 
 // eslint-disable-next-line import/prefer-default-export
 export const questionName = () => {
@@ -8,11 +9,12 @@ export const questionName = () => {
   return userName;
 };
 
-export const coreGame = (a, b, c) => {
+export const coreGame = (a, b) => {
   const name = questionName();
   const letsPlay = (i) => {
-    const numberOnScreen = a(c);
-    const rezultNum = b(numberOnScreen);
+    const returnPair = a(b);
+    const numberOnScreen = car(returnPair);
+    const rezultNum = cdr(returnPair);
     const answer = readlineSync.question(`\nQuestion: ${numberOnScreen}\nYour answer: `);
     if (answer === rezultNum) {
       console.log('Correct!');
