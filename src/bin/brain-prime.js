@@ -1,4 +1,4 @@
-#!usr/bin/node
+#!/usr/bin/node
 import { coreGame } from '..';
 import calcOperation from '../games/calcOperation';
 import findPrime from '../games/findPrime';
