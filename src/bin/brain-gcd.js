@@ -1,9 +1,4 @@
-#!/usr/bin/node
-// eslint-disable-next-line import/named
-import { coreGame } from '..';
-import calcOperation from '../games/calcOperation';
-import nodFunc from '../games/nodFunc';
+#!/usr/bin/env node
+import brainGameGCD from '../games/BrainGameGCD';
 
-console.log('\nWelcome to the Brain Games!!!');
-console.log('Find the greatest common divisor of given numbers.');
-coreGame(nodFunc, calcOperation);
+brainGameGCD();

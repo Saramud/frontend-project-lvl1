@@ -1,26 +1,24 @@
-#!/usr/bin/node
+#!/usr/bin/env node
 import readlineSync from 'readline-sync';
 import { car, cdr } from 'hexlet-pairs';
 
-// eslint-disable-next-line import/prefer-default-export
-export const questionName = () => {
-  const userName = readlineSync.question('\nMay I have your name? ');
-  console.log(`Hello, ${userName}`);
-  return userName;
+export const gameEngine = (function1, function2) => {
+  const getName = readlineSync.question('\nMay I have your name? ');
+  console.log(`Hello, ${getName}`);
+  const startRound = 1;
+  const letsPlay = (countOfRound) => {
+    const getPair = function1(function2);
+    const dataOnScreen = car(getPair);
+    const correctAnswer = cdr(getPair);
+    const numberOfRounds = 3;
+    const answerOfPlayer = readlineSync.question(`\nQuestion: ${dataOnScreen}\nYour answer: `);
+    if (answerOfPlayer === correctAnswer) {
+      console.log('Correct!');
+      return (countOfRound < numberOfRounds) ? letsPlay(countOfRound + 1) : console.log(`Congratulations, ${getName}`);
+    } return console.log(`'${answerOfPlayer}' is wrong answer ;(. Correct answer '${correctAnswer}'. 
+    Let's try again ${getName}`);
+  };
+  letsPlay(startRound);
 };
 
-export const coreGame = (a, b) => {
-  const name = questionName();
-  const letsPlay = (i) => {
-    const returnPair = a(b);
-    const numberOnScreen = car(returnPair);
-    const rezultNum = cdr(returnPair);
-    const answer = readlineSync.question(`\nQuestion: ${numberOnScreen}\nYour answer: `);
-    if (answer === rezultNum) {
-      console.log('Correct!');
-      return (i < 3) ? letsPlay(i + 1) : console.log(`Congratulations, ${name}`);
-    } return console.log(`'${answer}' is wrong answer ;(. Correct answer '${rezultNum}'. 
-    Let's try again ${name}`);
-  };
-  letsPlay(1);
-};
+export default gameEngine;

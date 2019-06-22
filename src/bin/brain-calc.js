@@ -1,9 +1,4 @@
-#!/usr/bin/node
-import { coreGame } from '..';
-import calcString from '../games/calcString';
-import calcOperation from '../games/calcOperation';
+#!/usr/bin/env node
+import brainGameCalculator from '../games/BrainGameCalculator';
 
-
-console.log('\nWelcome to the Brain Games!!!');
-console.log('What is the result of the expression?');
-coreGame(calcString, calcOperation);
+brainGameCalculator();
