@@ -1,5 +1,5 @@
 import { cons } from 'hexlet-pairs';
-import randomGeneration  from '../generationData';
+import randomGeneration from '../generationData';
 import { gameEngine } from '../index';
 
 const prime = () => {
