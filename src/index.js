@@ -2,23 +2,24 @@
 import readlineSync from 'readline-sync';
 import { car, cdr } from 'hexlet-pairs';
 
-export const gameEngine = (function1, function2) => {
+export const gameEngine = (data) => {
+  console.log(cdr(data()));
   const getName = readlineSync.question('\nMay I have your name? ');
   console.log(`Hello, ${getName}`);
   const startRound = 1;
-  const letsPlay = (countOfRound) => {
-    const getPair = function1(function2);
-    const dataOnScreen = car(getPair);
-    const correctAnswer = cdr(getPair);
-    const numberOfRounds = 3;
+  const gaming = (round) => {
+    const getData = data();
+    const dataOnScreen = car(car(getData));
+    const correctAnswer = cdr(car(getData));
+    const countRounds = 3;
     const answerOfPlayer = readlineSync.question(`\nQuestion: ${dataOnScreen}\nYour answer: `);
     if (answerOfPlayer === correctAnswer) {
       console.log('Correct!');
-      return (countOfRound < numberOfRounds) ? letsPlay(countOfRound + 1) : console.log(`Congratulations, ${getName}`);
+      return (round < countRounds) ? gaming(round + 1) : console.log(`Congratulations, ${getName}`);
     } return console.log(`'${answerOfPlayer}' is wrong answer ;(. Correct answer '${correctAnswer}'. 
     Let's try again ${getName}`);
   };
-  letsPlay(startRound);
+  gaming(startRound);
 };
 
 export default gameEngine;
