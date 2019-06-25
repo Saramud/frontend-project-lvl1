@@ -11,11 +11,11 @@ export const gameEngine = (data) => {
     const getData = data();
     const dataOnScreen = car(car(getData));
     const correctAnswer = cdr(car(getData));
-    const countRounds = 3;
+    const totalRounds = 3;
     const answerOfPlayer = readlineSync.question(`\nQuestion: ${dataOnScreen}\nYour answer: `);
     if (answerOfPlayer === correctAnswer) {
       console.log('Correct!');
-      return (round < countRounds) ? gaming(round + 1) : console.log(`Congratulations, ${getName}`);
+      return (round < totalRounds) ? gaming(round + 1) : console.log(`Congratulations, ${getName}`);
     } return console.log(`'${answerOfPlayer}' is wrong answer ;(. Correct answer '${correctAnswer}'. 
     Let's try again ${getName}`);
   };
