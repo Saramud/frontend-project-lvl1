@@ -1,24 +1,27 @@
 import { cons } from 'hexlet-pairs';
 import randomGeneration from '../generationData';
-import { gameEngine } from '../index';
+import { gameEngine } from '..';
+
+const annotation = 'Welcome to the Brain Games!\nAnswer "yes" if given number is prime. Otherwise answer "no".';
+
+const isPrime = (number, count) => {
+  if (count === 1) {
+    return true;
+  } if (number % count === 0) {
+    return false;
+  }
+  return isPrime(number, count - 1);
+};
 
 const prime = () => {
   const getDataForGames = () => {
-    const introduce = 'Welcome to the Brain Games!\nAnswer "yes" if given number is prime. Otherwise answer "no".';
     const range = 10;
-    const randomData = randomGeneration() * (Math.floor(Math.random() * range));
-    const dividerCount = randomData - 1;
-    const hasPrime = (number, count) => {
-      if (count === 1) {
-        return 'yes';
-      } if (number % count === 0) {
-        return 'no';
-      }
-      return hasPrime(number, count - 1);
-    };
-    const questionAndAnswer = cons(randomData, hasPrime(randomData, dividerCount));
-    const dataForGames = cons(questionAndAnswer, introduce);
-    return dataForGames;
+    const question = randomGeneration(500) * (Math.floor(Math.random() * range));
+    const dividerCount = question - 1;
+    const answer = isPrime(question, dividerCount) ? 'yes' : 'no';
+    const questionAnswer = cons(question, answer);
+    const gameData = cons(questionAnswer, annotation);
+    return gameData;
   };
   gameEngine(getDataForGames);
 };

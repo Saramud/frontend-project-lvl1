@@ -1,7 +1,8 @@
 
-const randomGeneration = () => {
-  const rangeRandomNumbers = 500;
-  return Math.floor(Math.random() * rangeRandomNumbers);
+const randomGeneration = (number) => {
+  const rangeRandomNumbers = number;
+  const defaultNumber = number;
+  return (Math.floor(Math.random() * rangeRandomNumbers)) + defaultNumber;
 };
 
 export default randomGeneration;

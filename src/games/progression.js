@@ -1,31 +1,30 @@
 import { cons } from 'hexlet-pairs';
 import randomGeneration from '../generationData';
-import { gameEngine } from '../index';
+import { gameEngine } from '..';
+
+const annotation = '\nWelcome to the Brain Games!!!\nWhat number is missing in the progression?';
 
 const progression = () => {
-  const getDataForGames = () => {
-    const introduce = '\nWelcome to the Brain Games!!!\nWhat number is missing in the progression?';
-    let first = randomGeneration();
+  const getDataGames = () => {
+    let first = randomGeneration(500);
     const lengthProgression = 10;
-    const Progression = [];
-    let translatedProgression = '';
-    const deletedPlace = Math.floor(Math.random() * lengthProgression);
-    const step = 5;
-    const defaultStep = 2;
-    const progressionStep = Math.floor(Math.random() * step) + defaultStep;
+    const progressions = [];
+    let question = '';
+    const emptyPosition = Math.floor(Math.random() * lengthProgression);
+    const progressionStep = randomGeneration(4);
     for (let i = 0; i < lengthProgression; i += 1) {
-      Progression.push(first += progressionStep);
+      progressions.push(first += progressionStep);
     }
-    const emptyPlace = `${Progression[deletedPlace]}`;
-    Progression[deletedPlace] = '..';
-    for (let i = 0; i < 10; i += 1) {
-      translatedProgression += `${Progression[i]} `;
+    const answer = `${progressions[emptyPosition]}`;
+    progressions[emptyPosition] = '..';
+    for (let i = 0; i < lengthProgression; i += 1) {
+      question += `${progressions[i]} `;
     }
-    const progressionAndAnswer = cons(translatedProgression, emptyPlace);
-    const dataForGames = cons(progressionAndAnswer, introduce);
-    return dataForGames;
+    const questionAnswer = cons(question, answer);
+    const gameData = cons(questionAnswer, annotation);
+    return gameData;
   };
-  gameEngine(getDataForGames);
+  gameEngine(getDataGames);
 };
 
 export default progression;
