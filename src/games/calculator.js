@@ -4,13 +4,13 @@ import { gameEngine } from '..';
 
 
 const analogOfEval = (string) => {
-  const masString = string.split(' ');
+  const expression = string.split(' ');
   const templates = {
-    '+': (masString[0] * 1) + (masString[2] * 1),
-    '-': masString[0] - masString[2],
-    '*': masString[0] * masString[2],
+    '+': (expression[0] * 1) + (expression[2] * 1),
+    '-': expression[0] - expression[2],
+    '*': expression[0] * expression[2],
   };
-  return templates[masString[1]];
+  return templates[expression[1]];
 };
 
 const annotation = '\nWelcome to the Brain Games!!!\nWhat is the result of the expression?';

@@ -20,7 +20,7 @@ export const gameEngine = (data) => {
     } console.log(`'${playerAnswer}' is wrong answer ;(. Correct answer '${correctAnswer}'. 
     Let's try again ${getName}`);
   };
-  play(startRound);
+  return play(startRound);
 };
 
 export default gameEngine;
