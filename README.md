@@ -10,7 +10,8 @@
 1. make install
 2. npm run-script build
 3. make publish
-4. npx link
+4. npm link
+P.s. *nix системах не забывайте про запуск команд от имени суперпользователя.
 
 После установки сборника для запуска игры достаточно ввести одно из имен указанных в списке(см.выше)
 
@@ -19,4 +20,4 @@ frontend-project-lvl1
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/a99a88d28ad37a79dbf6/maintainability)](https://codeclimate.com/github/codeclimate/codeclimate/maintainability)
 
-asciinema: https://asciinema.org/a/7SIbzn1qx27JX6344eB8v8Fj0
+asciinema: https://asciinema.org/connect/78a0dbf9-34be-46ce-8e89-8c56093c2940
