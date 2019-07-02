@@ -1,34 +1,34 @@
 import { cons } from 'hexlet-pairs';
-import randomGeneration from '../generationData';
-import { gameEngine } from '..';
+import randomGeneration from '../randomGeneration';
+import launchEngine from '..';
 
-
-const analogOfEval = (string) => {
-  const expression = string.split(' ');
-  const templates = {
-    '+': (expression[0] * 1) + (expression[2] * 1),
-    '-': expression[0] - expression[2],
-    '*': expression[0] * expression[2],
-  };
-  return templates[expression[1]];
+const templates = {
+  '+': ((a, b) => a * 1 + b * 1),
+  '-': ((a, b) => a - b),
+  '*': ((a, b) => a * b),
 };
 
-const annotation = '\nWelcome to the Brain Games!!!\nWhat is the result of the expression?';
+const analogEval = (string) => {
+  const expression = string.split(' ');
+  const y = templates[expression[1]];
+  return y(expression[0], expression[2]);
+};
 
-const calculator = () => {
-  const getDataGames = () => {
-    const firstOperand = randomGeneration(500);
-    const secondOperand = randomGeneration(500);
-    const expressions = [`${firstOperand} - ${secondOperand}`, `${firstOperand} + ${secondOperand}`, `${firstOperand} * ${secondOperand}`];
-    const coeffForChoice = 3;
-    const randomRange = Math.floor(Math.random() * coeffForChoice);
-    const question = expressions[randomRange];
-    const answer = `${analogOfEval(question)}`;
-    const questionAnswer = cons(question, answer);
-    const gameData = cons(questionAnswer, annotation);
+const annotation = ['Welcome to the Brain Games!!!', 'What is the result of the expression?'];
+
+const brainCalc = () => {
+  const getGameData = () => {
+    const firstOperand = randomGeneration(500, 500);
+    const secondOperand = randomGeneration(500, 500);
+    const expressions = [(frst, sec) => `${frst} + ${sec}`, (frst, sec) => `${frst} - ${sec}`, (frst, sec) => `${frst} * ${sec}`];
+    const randomRange = randomGeneration(expressions.length);
+    const selectedExpression = expressions[randomRange];
+    const question = selectedExpression(firstOperand, secondOperand);
+    const answer = `${analogEval(question)}`;
+    const gameData = cons(question, answer);
     return gameData;
   };
-  gameEngine(getDataGames);
+  launchEngine(getGameData, annotation);
 };
 
-export default calculator;
+export default brainCalc;

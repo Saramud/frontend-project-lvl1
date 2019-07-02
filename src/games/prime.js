@@ -1,29 +1,30 @@
 import { cons } from 'hexlet-pairs';
-import randomGeneration from '../generationData';
-import { gameEngine } from '..';
+import randomGeneration from '../randomGeneration';
+import launchEngine from '..';
 
-const annotation = 'Welcome to the Brain Games!\nAnswer "yes" if given number is prime. Otherwise answer "no".';
+const annotation = ['Welcome to the Brain Games!', 'Answer "yes" if given number is prime. Otherwise answer "no".'];
 
-const isPrime = (number, count) => {
-  if (count === 1) {
-    return true;
-  } if (number % count === 0) {
-    return false;
-  }
-  return isPrime(number, count - 1);
+const isPrime = (divident) => {
+  const divider = divident - 1;
+  const getStatus = (a, b) => {
+    if (b === 1) {
+      return true;
+    } if (a % b === 0) {
+      return false;
+    }
+    return getStatus(a, b - 1);
+  };
+  return getStatus(divident, divider);
 };
 
-const prime = () => {
-  const getDataForGames = () => {
-    const range = 10;
-    const question = randomGeneration(500) * (Math.floor(Math.random() * range));
-    const dividerCount = question - 1;
-    const answer = isPrime(question, dividerCount) ? 'yes' : 'no';
-    const questionAnswer = cons(question, answer);
-    const gameData = cons(questionAnswer, annotation);
+const brainPrime = () => {
+  const getGameData = () => {
+    const question = randomGeneration(100);
+    const answer = isPrime(question) ? 'yes' : 'no';
+    const gameData = cons(question, answer);
     return gameData;
   };
-  gameEngine(getDataForGames);
+  launchEngine(getGameData, annotation);
 };
 
-export default prime;
+export default brainPrime;
