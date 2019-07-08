@@ -1,10 +1,12 @@
-const randomGeneration = (number) => {
+export const randomGeneration = (number) => {
   const rangeRandomNumbers = number;
-  let randomNumber = (Math.floor(Math.random() * rangeRandomNumbers));
+  return (Math.floor(Math.random() * rangeRandomNumbers));
+};
+
+export const generationWithoutZero = (number) => {
+  const randomNumber = randomGeneration(number);
   if (randomNumber === 0) {
-    randomNumber += number;
+    return number;
   }
   return randomNumber;
 };
-
-export default randomGeneration;

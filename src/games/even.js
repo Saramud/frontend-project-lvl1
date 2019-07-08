@@ -1,5 +1,5 @@
 import { cons } from 'hexlet-pairs';
-import randomGeneration from '../randomGeneration';
+import { randomGeneration } from '../randomGeneration';
 import launchEngine from '..';
 
 const isEven = number => (number % 2 === 0 && number !== 0);

@@ -1,12 +1,12 @@
 import { cons } from 'hexlet-pairs';
-import randomGeneration from '../randomGeneration';
+import { randomGeneration, generationWithoutZero } from '../randomGeneration';
 import launchEngine from '..';
 
 const annotation = cons('Welcome to the Brain Games!!!', 'What number is missing in the progression?');
 
 const getProgression = (length) => {
   const progressions = [];
-  const first = randomGeneration(500);
+  const first = generationWithoutZero(500);
   let fillerProgression = first;
   const progressionStep = randomGeneration(8);
   for (let i = 0; i < length; i += 1) {
@@ -20,7 +20,7 @@ const brainProgression = () => {
     const lengthProgression = 10;
     const progression = getProgression(lengthProgression);
     let question = '';
-    const emptyPosition = randomGeneration(lengthProgression - 1);
+    const emptyPosition = randomGeneration(lengthProgression);
     const answer = `${progression[emptyPosition]}`;
     progression[emptyPosition] = '..';
     for (let i = 0; i < lengthProgression; i += 1) {
