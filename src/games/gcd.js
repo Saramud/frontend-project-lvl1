@@ -2,7 +2,7 @@ import { cons } from 'hexlet-pairs';
 import randomGeneration from '../randomGeneration';
 import launchEngine from '..';
 
-const annotation = ['Welcome to the Brain Games!!!', 'Find the greatest common divisor of given numbers.'];
+const annotation = cons('Welcome to the Brain Games!!!', 'Find the greatest common divisor of given numbers.');
 
 const getGcd = (first, second) => {
   let gcd;
@@ -12,15 +12,15 @@ const getGcd = (first, second) => {
       break;
     }
   }
-  return `${gcd}`;
+  return gcd;
 };
 
 const brainGcd = () => {
   const getGameData = () => {
-    const first = randomGeneration(500, 500);
-    const second = randomGeneration(500, 500);
+    const first = randomGeneration(500);
+    const second = randomGeneration(500);
     const question = `${first} ${second}`;
-    const answer = getGcd(first, second);
+    const answer = `${getGcd(first, second)}`;
     const gameData = cons(question, answer);
     return gameData;
   };

@@ -2,10 +2,10 @@ import { cons } from 'hexlet-pairs';
 import randomGeneration from '../randomGeneration';
 import launchEngine from '..';
 
-const annotation = ['Welcome to the Brain Games!', 'Answer "yes" if given number is prime. Otherwise answer "no".'];
+const annotation = cons('Welcome to the Brain Games!', 'Answer "yes" if given number is prime. Otherwise answer "no".');
 
-const isPrime = (divident) => {
-  const divider = divident - 1;
+const isPrime = (checkNumber) => {
+  const divider = checkNumber - 1;
   const getStatus = (a, b) => {
     if (b === 1) {
       return true;
@@ -14,7 +14,7 @@ const isPrime = (divident) => {
     }
     return getStatus(a, b - 1);
   };
-  return getStatus(divident, divider);
+  return getStatus(checkNumber, divider);
 };
 
 const brainPrime = () => {
