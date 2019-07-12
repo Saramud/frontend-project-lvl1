@@ -1,12 +1,9 @@
-export const randomGeneration = (number) => {
-  const rangeRandomNumbers = number;
-  return (Math.floor(Math.random() * rangeRandomNumbers));
-};
-
-export const generationWithoutZero = (number) => {
-  const randomNumber = randomGeneration(number);
+const getRandom = (number) => {
+  const randomNumber = (Math.floor(Math.random() * number));
   if (randomNumber === 0) {
     return number;
   }
   return randomNumber;
 };
+
+export default getRandom;

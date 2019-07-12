@@ -1,29 +1,31 @@
 import readlineSync from 'readline-sync';
 import { car, cdr } from 'hexlet-pairs';
 
-const countRounds = 3;
+const roundsTotal = 3;
 
-const launchEngine = (getData, description) => {
-  console.log(`${car(description)}\n${cdr(description)}`);
+const engine = (getData, description) => {
+  console.log('Welcome to the Brain Games!!!');
+  console.log(description);
   const getName = readlineSync.question('\nMay I have your name? ');
   console.log(`Hello, ${getName}`);
   const iter = (round) => {
-    const gameData = getData();
-    const question = car(gameData);
-    const questionPhrase = `Question: ${question}\nYour answer: `;
-    const correctAnswer = cdr(gameData);
-    const playerAnswer = readlineSync.question(questionPhrase);
-    if (playerAnswer === correctAnswer && round < countRounds) {
-      console.log('Correct!\n');
-      iter(round + 1);
-    } else if (playerAnswer === correctAnswer && round === countRounds) {
-      console.log(`\nCongratulations, ${getName}`);
+    if (round <= roundsTotal) {
+      const gameData = getData();
+      const correctAnswer = cdr(gameData);
+      const question = `Question: ${car(gameData)}`;
+      console.log(question);
+      const playerAnswer = readlineSync.question('Your answer: ');
+      if (playerAnswer === correctAnswer) {
+        console.log('Correct!\n');
+        iter(round + 1);
+      } else {
+        console.log(`'${playerAnswer}' is wrong answer ;(. Correct answer '${correctAnswer}'.`);
+        console.log(`Let's try again ${getName}`);
+      }
     } else {
-      console.log(`'${playerAnswer}' is wrong answer ;(. Correct answer '${correctAnswer}'.`);
-      console.log(`Let's try again ${getName}`);
+      console.log(`\nCongratulations, ${getName}`);
     }
   };
   return iter(1);
 };
-
-export default launchEngine;
+export default engine;

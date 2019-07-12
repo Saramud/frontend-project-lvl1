@@ -1,27 +1,26 @@
 import { cons } from 'hexlet-pairs';
-import { randomGeneration, generationWithoutZero } from '../randomGeneration';
-import launchEngine from '..';
+import getRandom from '../randomGeneration';
+import engine from '..';
 
-const annotation = cons('Welcome to the Brain Games!!!', 'What number is missing in the progression?');
+const annotation = 'What number is missing in the progression?';
+const lengthProgression = 10;
 
-const getProgression = (length) => {
+const getProgression = (length, headProgression, step) => {
   const progressions = [];
-  const first = generationWithoutZero(500);
-  let fillerProgression = first;
-  const progressionStep = randomGeneration(8);
   for (let i = 0; i < length; i += 1) {
-    progressions.push(fillerProgression += progressionStep);
+    progressions.push(headProgression + step * i);
   }
   return progressions;
 };
 
 const brainProgression = () => {
   const getGameData = () => {
-    const lengthProgression = 10;
-    const progression = getProgression(lengthProgression);
+    const first = getRandom(500);
+    const progressionStep = getRandom(8);
+    const progression = getProgression(lengthProgression, first, progressionStep);
     let question = '';
-    const emptyPosition = randomGeneration(lengthProgression);
-    const answer = `${progression[emptyPosition]}`;
+    const emptyPosition = getRandom(lengthProgression - 1);
+    const answer = progression[emptyPosition].toString();
     progression[emptyPosition] = '..';
     for (let i = 0; i < lengthProgression; i += 1) {
       question = `${question} ${progression[i]}`;
@@ -29,7 +28,7 @@ const brainProgression = () => {
     const gameData = cons(question, answer);
     return gameData;
   };
-  launchEngine(getGameData, annotation);
+  engine(getGameData, annotation);
 };
 
 export default brainProgression;
