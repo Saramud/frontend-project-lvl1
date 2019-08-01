@@ -15,15 +15,10 @@ const isPrime = (num) => {
   };
   return getStatus(num, 2);
 };
-
-const brainPrime = () => {
-  const getGameData = () => {
-    const question = getRandom(100);
-    const answer = isPrime(question) ? 'yes' : 'no';
-    const gameData = cons(question, answer);
-    return gameData;
-  };
-  engine(getGameData, annotation);
+const getGameData = () => {
+  const question = getRandom(100);
+  const answer = isPrime(question) ? 'yes' : 'no';
+  return cons(question, answer);
 };
 
-export default brainPrime;
+export default () => engine(getGameData, annotation);

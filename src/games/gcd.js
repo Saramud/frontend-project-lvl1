@@ -14,17 +14,12 @@ const getGcd = (first, second) => {
   }
   return gcd;
 };
-
-const brainGcd = () => {
-  const getGameData = () => {
-    const first = getRandom(500);
-    const second = getRandom(500);
-    const question = `${first} ${second}`;
-    const answer = getGcd(first, second).toString();
-    const gameData = cons(question, answer);
-    return gameData;
-  };
-  engine(getGameData, annotation);
+const getGameData = () => {
+  const first = getRandom(500);
+  const second = getRandom(500);
+  const question = `${first} ${second}`;
+  const answer = getGcd(first, second).toString();
+  return cons(question, answer);
 };
 
-export default brainGcd;
+export default () => engine(getGameData, annotation);

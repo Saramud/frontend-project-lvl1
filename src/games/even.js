@@ -8,11 +8,7 @@ const annotation = 'Answer "yes" if number even otherwise answer "no"';
 const getGameData = () => {
   const question = randomData(500);
   const answer = isEven(question) ? 'yes' : 'no';
-  const gameData = cons(question, answer);
-  return gameData;
+  return cons(question, answer);
 };
 
-const brainEven = () => launchEngine(getGameData, annotation);
-
-
-export default brainEven;
+export default () => launchEngine(getGameData, annotation);
