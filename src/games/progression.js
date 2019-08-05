@@ -6,21 +6,21 @@ const annotation = 'What number is missing in the progression?';
 const lengthProgression = 10;
 
 const getProgression = (length, first, step) => {
-  const progressions = [];
+  const progression = [];
   for (let i = 0; i < length; i += 1) {
-    progressions.push(first + step * i);
+    progression.push(first + step * i);
   }
-  return progressions;
+  return progression;
 };
 
 const getGameData = () => {
-  const first = getRandom(500);
-  const progressionStep = getRandom(8);
+  const first = getRandom(1, 500);
+  const progressionStep = getRandom(2, 12);
   const progression = getProgression(lengthProgression, first, progressionStep);
   let question = '';
-  const emptyPosition = getRandom(lengthProgression - 1);
-  const answer = progression[emptyPosition].toString();
-  progression[emptyPosition] = '..';
+  const hiddenElementPosition = getRandom(0, lengthProgression - 1);
+  const answer = progression[hiddenElementPosition].toString();
+  progression[hiddenElementPosition] = '..';
   question = progression.join(' ');
   return cons(question, answer);
 };

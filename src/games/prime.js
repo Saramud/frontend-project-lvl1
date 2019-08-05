@@ -6,7 +6,7 @@ const annotation = 'Answer "yes" if given number is prime. Otherwise answer "no"
 
 const isPrime = (num) => {
   const getStatus = (a, acc) => {
-    if (acc === a) {
+    if (acc > a / 2) {
       return true;
     } if (a % acc === 0) {
       return false;
@@ -16,7 +16,7 @@ const isPrime = (num) => {
   return getStatus(num, 2);
 };
 const getGameData = () => {
-  const question = getRandom(100);
+  const question = getRandom(1, 100);
   const answer = isPrime(question) ? 'yes' : 'no';
   return cons(question, answer);
 };

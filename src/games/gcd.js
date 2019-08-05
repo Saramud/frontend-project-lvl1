@@ -15,8 +15,8 @@ const getGcd = (first, second) => {
   return gcd;
 };
 const getGameData = () => {
-  const first = getRandom(500);
-  const second = getRandom(500);
+  const first = getRandom(1, 500);
+  const second = getRandom(1, 500);
   const question = `${first} ${second}`;
   const answer = getGcd(first, second).toString();
   return cons(question, answer);

@@ -11,12 +11,11 @@ const operations = {
 const annotation = 'What is the result of the expression?';
 
 const getGameData = () => {
-  const firstOperand = getRandom(500);
-  const secondOperand = getRandom(500);
-  const operators = Object.keys(operations);
-  const operatorExpression = operators[getRandom(operators.length - 1)];
-  const operation = operations[operatorExpression];
-  const question = `${firstOperand} ${operatorExpression} ${secondOperand}`;
+  const firstOperand = getRandom(1, 500);
+  const secondOperand = getRandom(1, 500);
+  const operator = Object.keys(operations)[getRandom(0, Object.keys(operations).length)];
+  const operation = operations[operator];
+  const question = `${firstOperand} ${operator} ${secondOperand}`;
   const answer = operation(firstOperand, secondOperand).toString();
   return cons(question, answer);
 };

@@ -1,7 +1,7 @@
-const getRandom = (number) => {
-  const randomNumber = (Math.floor(Math.random() * number));
-  if (randomNumber === 0) {
-    return number;
+const getRandom = (a, b) => {
+  const randomNumber = (Math.floor(Math.random() * b));
+  if (randomNumber < a || randomNumber > b) {
+    return getRandom(a, b);
   }
   return randomNumber;
 };

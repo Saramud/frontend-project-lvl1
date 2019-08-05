@@ -8,8 +8,8 @@ const engine = (getData, description) => {
   console.log(description);
   const getName = readlineSync.question('\nMay I have your name? ');
   console.log(`Hello, ${getName}`);
-  const iter = (round) => {
-    if (round > roundsTotal) {
+  const iter = (count = 1) => {
+    if (count > roundsTotal) {
       console.log(`\nCongratulations, ${getName}`);
     } else {
       const gameData = getData();
@@ -19,13 +19,13 @@ const engine = (getData, description) => {
       const playerAnswer = readlineSync.question('Your answer: ');
       if (playerAnswer === correctAnswer) {
         console.log('Correct!\n');
-        iter(round + 1);
+        iter(count + 1);
       } else {
         console.log(`'${playerAnswer}' is wrong answer ;(. Correct answer '${correctAnswer}'.`);
         console.log(`Let's try again ${getName}`);
       }
     }
   };
-  return iter(1);
+  return iter();
 };
 export default engine;
