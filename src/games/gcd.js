@@ -14,6 +14,7 @@ const getGcd = (first, second) => {
   }
   return gcd;
 };
+
 const getGameData = () => {
   const first = getRandom(1, 500);
   const second = getRandom(1, 500);

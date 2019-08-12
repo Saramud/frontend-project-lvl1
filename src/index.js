@@ -8,7 +8,7 @@ const engine = (getData, description) => {
   console.log(description);
   const getName = readlineSync.question('\nMay I have your name? ');
   console.log(`Hello, ${getName}`);
-  const iter = (count = 1) => {
+  const iter = (count) => {
     if (count > roundsTotal) {
       console.log(`\nCongratulations, ${getName}`);
     } else {
@@ -26,6 +26,6 @@ const engine = (getData, description) => {
       }
     }
   };
-  return iter();
+  iter(1);
 };
 export default engine;

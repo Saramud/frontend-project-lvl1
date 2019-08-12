@@ -16,7 +16,7 @@ const isPrime = (num) => {
   return getStatus(num, 2);
 };
 const getGameData = () => {
-  const question = getRandom(1, 100);
+  const question = getRandom(2, 100);
   const answer = isPrime(question) ? 'yes' : 'no';
   return cons(question, answer);
 };
