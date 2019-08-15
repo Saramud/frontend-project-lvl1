@@ -5,14 +5,11 @@ import engine from '..';
 const annotation = 'Find the greatest common divisor of given numbers.';
 
 const getGcd = (first, second) => {
-  let gcd;
   for (let i = second; i >= 1; i -= 1) {
     if (first % i === 0 && second % i === 0) {
-      gcd = i;
-      break;
+      return i;
     }
   }
-  return gcd;
 };
 
 const getGameData = () => {
