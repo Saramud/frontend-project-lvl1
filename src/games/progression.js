@@ -15,8 +15,8 @@ const getProgression = (length, first, step) => {
 
 const getGameData = () => {
   const first = getRandom(1, 500);
-  const progressionStep = getRandom(2, 12);
-  const progression = getProgression(lengthProgression, first, progressionStep);
+  const step = getRandom(2, 12);
+  const progression = getProgression(lengthProgression, first, step);
   let question = '';
   const hiddenElementPosition = getRandom(0, lengthProgression - 1);
   const answer = progression[hiddenElementPosition].toString();

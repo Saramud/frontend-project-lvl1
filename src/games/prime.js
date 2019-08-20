@@ -5,18 +5,23 @@ import engine from '..';
 const annotation = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const isPrime = (num) => {
-  const getStatus = (a, acc) => {
-    if (acc > a / 2) {
+  if (num <= 1) {
+    return false;
+  }
+  const iter = (counter) => {
+    if (counter > num / 2) {
       return true;
-    } if (a % acc === 0) {
+    }
+    if (num % counter === 0) {
       return false;
     }
-    return getStatus(a, acc + 1);
+    return iter(counter + 1);
   };
-  return getStatus(num, 2);
+  return iter(2);
 };
+
 const getGameData = () => {
-  const question = getRandom(2, 100);
+  const question = getRandom(0, 100);
   const answer = isPrime(question) ? 'yes' : 'no';
   return cons(question, answer);
 };

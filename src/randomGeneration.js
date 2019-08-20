@@ -1,5 +1,5 @@
 const getRandom = (a, b) => {
-  const randomNumber = (Math.floor(Math.random() * b)) - (Math.floor(Math.random() * a));
+  const randomNumber = (a + (Math.floor(Math.random() * (b + 1 - a))));
   return randomNumber;
 };
 
